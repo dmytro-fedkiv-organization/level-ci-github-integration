@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
+      - name: Checkout level-ci.config.ts
         uses: actions/checkout@v4
         with:
           sparse-checkout: level-ci.config.ts
