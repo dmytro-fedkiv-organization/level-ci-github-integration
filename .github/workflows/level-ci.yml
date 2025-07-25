@@ -21,3 +21,7 @@ jobs:
 
       - name: Level CI Accessibility Analysis
         uses: UserWayOrg/cicd-action@dev
+        env:
+          LEVEL_CI_TOKEN: ${{ secrets.LEVEL_CI_TOKEN }}
+          LEVEL_CI_USERNAME: ${{ secrets.LEVEL_CI_USERNAME }}
+          LEVEL_CI_PASSWORD: ${{ secrets.LEVEL_CI_PASSWORD }}
