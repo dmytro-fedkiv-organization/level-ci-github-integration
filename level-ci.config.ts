@@ -8,7 +8,7 @@ export default {
   connection: "https://cicd.dev.userway.dev",
   pages: [
     {
-      url: "/login?next=/dmytro-fedkiv/projects",
+      url: "/dmytro-fedkiv/projects",
       auth: {
         url: "https://cicd.dev.userway.dev/login",
         type: "form",
