@@ -9,15 +9,9 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
         with:
-          node-version: 22.x
-          cache: "npm"
-
-      - name: Install dependencies
-        run: npm ci
+          sparse-checkout: level-ci.config.ts
+          sparse-checkout-cone-mode: false
 
       - name: Level CI Accessibility Analysis
         uses: UserWayOrg/cicd-action@dev
