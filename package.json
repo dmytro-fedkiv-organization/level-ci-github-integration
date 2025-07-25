@@ -1,0 +1,24 @@
+{
+  "name": "level-ci-github-integration",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dmytro-fedkiv-la/level-ci-github-integration.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dmytro-fedkiv-la/level-ci-github-integration/issues"
+  },
+  "homepage": "https://github.com/dmytro-fedkiv-la/level-ci-github-integration#readme",
+  "description": "",
+  "devDependencies": {
+    "@types/node": "^24.1.0",
+    "@userway/cicd-cli": "^0.1.5-alpha.22",
+    "@userway/cicd-core": "^0.1.5-alpha.22"
+  }
+}

@@ -1,17 +1,17 @@
-import type { Config } from '@userway/cicd-core';
+import type { Config } from "@userway/cicd-core";
 
 export default {
-  organization: 'dmytro-fedkiv',
-  project: 'level-ci-github-integration',
+  organization: "dmytro-fedkiv",
+  project: "level-ci-github-integration",
   token: process.env.LEVEL_CI_TOKEN,
-  server: 'https://cicd.dev.userway.dev',
-  connection: 'https://cicd.dev.userway.dev',
+  server: "https://cicd.dev.userway.dev",
+  connection: "https://cicd.dev.userway.dev",
   pages: [
     {
-      url: '/login?next=/dmytro-fedkiv/projects',
+      url: "/login?next=/dmytro-fedkiv/projects",
       auth: {
-        url: 'https://cicd.dev.userway.dev/login',
-        type: 'form',
+        url: "https://cicd.dev.userway.dev/login",
+        type: "form",
         credentials: {
           username: process.env.LEVEL_CI_USERNAME!,
           password: process.env.LEVEL_CI_PASSWORD!,
