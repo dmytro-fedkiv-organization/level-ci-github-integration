@@ -3,8 +3,8 @@ import type { Config } from "@userway/cicd-core";
 export default {
   organization: "dmytro-fedkiv",
   project: "level-ci-github-integration",
-  token: process.env.LEVEL_CI_TOKEN,
-  server: "https://cicd.dev.userway.dev",
+  token: "gnc4totzsr6bywqbcvtp7pyfim10rtffmvoz8tla",
+  server: "https://cicd.qa.userway.dev",
   connection: "https://cicd.dev.userway.dev",
   pages: [
     {
