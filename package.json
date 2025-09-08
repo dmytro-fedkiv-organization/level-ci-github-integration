@@ -2,9 +2,6 @@
   "name": "level-ci-github-integration",
   "version": "1.0.0",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/dmytro-fedkiv-la/level-ci-github-integration.git"
@@ -17,7 +14,9 @@
   "homepage": "https://github.com/dmytro-fedkiv-la/level-ci-github-integration#readme",
   "description": "",
   "devDependencies": {
+    "@playwright/test": "^1.55.0",
     "@types/node": "^24.1.0",
+    "@userway/a11y-playwright": "^1.0.3",
     "@userway/cicd-cli": "^0.1.5-alpha.22",
     "@userway/cicd-core": "^0.1.5-alpha.22"
   }
