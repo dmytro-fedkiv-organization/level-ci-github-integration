@@ -3,7 +3,6 @@ import { setupUserway, userwayAnalysis } from "@userway/a11y-playwright";
 
 setupUserway({
   reportPath: "./level-ci-reports",
-  customTags: ["level-ci"],
 });
 
 test.afterEach(async ({ page }) => {
@@ -24,6 +23,9 @@ test("login to Level CI", async ({ page }) => {
   await page.click('form button[type="submit"]');
 
   await page.waitForURL(/\/projects$/);
+
+  const url = page.url();
+  console.log(url);
 
   await expect(page).toHaveTitle(/Level CI/);
 });

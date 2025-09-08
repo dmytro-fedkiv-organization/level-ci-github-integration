@@ -16,7 +16,7 @@
   "devDependencies": {
     "@playwright/test": "^1.55.0",
     "@types/node": "^24.1.0",
-    "@userway/a11y-playwright": "^1.0.3",
+    "@userway/a11y-playwright": "^0.0.23",
     "@userway/cicd-cli": "^0.1.5-alpha.22",
     "@userway/cicd-core": "^0.1.5-alpha.22"
   }
