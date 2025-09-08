@@ -23,9 +23,7 @@ test("login to Level CI", async ({ page }) => {
 
   await page.click('form button[type="submit"]');
 
-  await page.waitForURL(
-    "https://dev.uw.ci.levelaccess.io/dmytro-fedkiv-levelaccess-com-ndfns/projects"
-  );
+  await page.waitForURL(/\/projects$/);
 
   await expect(page).toHaveTitle(/Level CI/);
 });
