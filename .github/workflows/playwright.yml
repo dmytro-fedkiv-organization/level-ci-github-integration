@@ -17,6 +17,8 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
+        env:
+          CLOUDSMITH_TOKEN: ${{ secrets.CLOUDSMITH_TOKEN }}
 
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
