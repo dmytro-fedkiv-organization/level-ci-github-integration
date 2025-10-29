@@ -24,8 +24,5 @@ test("login to Level CI", async ({ page }) => {
 
   await page.waitForURL(/\/projects$/);
 
-  const url = page.url();
-  console.log(url);
-
   await expect(page).toHaveTitle(/Level CI/);
 });
