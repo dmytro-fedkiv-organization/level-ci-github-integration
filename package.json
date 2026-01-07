@@ -14,6 +14,7 @@
   "homepage": "https://github.com/dmytro-fedkiv-la/level-ci-github-integration#readme",
   "description": "",
   "devDependencies": {
+    "@level-ci/a11y-playwright": "^0.1.1-preview-20260106211805",
     "@playwright/test": "^1.55.0",
     "@types/node": "^24.1.0",
     "@userway/a11y-playwright": "^0.0.23",

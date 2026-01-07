@@ -1,12 +1,12 @@
+import { levelAnalyze, levelSetup } from "@level-ci/a11y-playwright";
 import { expect, test } from "@playwright/test";
-import { setupUserway, userwayAnalysis } from "@userway/a11y-playwright";
 
-setupUserway({
+levelSetup({
   reportPath: "./level-ci-reports",
 });
 
 test.afterEach(async ({ page }) => {
-  await userwayAnalysis(page);
+  await levelAnalyze(page);
 });
 
 test("login to Level CI", async ({ page }) => {
