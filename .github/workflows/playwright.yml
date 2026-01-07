@@ -20,6 +20,9 @@ jobs:
         env:
           LEVEL_ACCESS_NPM_TOKEN: ${{ secrets.LEVEL_ACCESS_NPM_TOKEN }}
 
+      - name: Start HTTP server
+        run: npx http-server src -p 3000 &
+
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
 

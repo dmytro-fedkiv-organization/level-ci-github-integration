@@ -10,7 +10,7 @@ test.afterEach(async ({ page }) => {
 });
 
 test("login to Level CI", async ({ page }) => {
-  await page.goto("https://nextra.site/");
+  await page.goto("http://localhost:3000");
 
   expect(page).not.toBeUndefined();
 });
