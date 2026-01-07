@@ -3,6 +3,7 @@ import { expect, test } from "@playwright/test";
 
 levelSetup({
   reportPath: "./level-ci-reports",
+  stableSelectorAttributes: ["data-test-id"],
 });
 
 test.afterEach(async ({ page }) => {
