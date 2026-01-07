@@ -15,10 +15,8 @@
   "description": "",
   "devDependencies": {
     "@level-ci/a11y-playwright": "^0.1.1-preview-20260106211805",
+    "@level-ci/cli": "^0.1.10-alpha.2835",
     "@playwright/test": "^1.55.0",
-    "@types/node": "^24.1.0",
-    "@userway/a11y-playwright": "^0.0.23",
-    "@userway/cicd-cli": "^0.1.5-alpha.22",
-    "@userway/cicd-core": "^0.1.5-alpha.22"
+    "@types/node": "^24.1.0"
   }
 }
