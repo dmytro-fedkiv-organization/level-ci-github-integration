@@ -10,9 +10,7 @@ test.afterEach(async ({ page }) => {
 });
 
 test("login to Level CI", async ({ page }) => {
-  await page.goto(
-    "https://nextra.site/docs/guide/syntax-highlighting#highlighting-lines"
-  );
+  await page.goto("https://nextra.site/");
 
   expect(page).not.toBeUndefined();
 });
