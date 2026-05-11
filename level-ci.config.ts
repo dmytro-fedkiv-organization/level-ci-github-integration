@@ -5,5 +5,5 @@ export default {
   project: "level-ci-github-integration",
   token: process.env.LEVEL_CI_TOKEN,
   server: "https://cicd.dev.userway.dev",
-  reportPaths: ["level-ci-reports"],
+  reportPaths: ["./level-ci-reports"],
 } satisfies Config;
