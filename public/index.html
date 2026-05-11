@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <title>Acme Analytics</title>
     <style>
       :root {
@@ -172,6 +172,22 @@
         border: 1px solid #3b2719;
         padding: 8px;
       }
+
+      .more-violations {
+        border: 1px dashed #c45c26;
+        margin-top: 20px;
+        padding: 16px;
+      }
+
+      .more-violations .broken-list {
+        margin: 12px 0;
+        padding-left: 24px;
+      }
+
+      .more-violations .role-img-svg {
+        display: block;
+        margin-top: 8px;
+      }
     </style>
   </head>
   <body>
@@ -269,6 +285,36 @@
           </table>
           <p>
             <span role="link" tabindex="0">Fake role=link without href or keyboard Enter</span>
+          </p>
+        </div>
+
+        <div class="more-violations">
+          <h5></h5>
+          <p>Focusable control nested under aria-hidden:</p>
+          <div aria-hidden="true">
+            <button type="button">Hidden subtree promo</button>
+          </div>
+          <label for="country-field-never-defined">Country</label>
+          <input id="region-code" type="text" placeholder="Label for mismatches this input id">
+          <ul class="broken-list">
+            <div>Not wrapped in li</div>
+          </ul>
+          <table role="presentation">
+            <caption style="caption-side: bottom">Caption on layout table</caption>
+            <tr>
+              <td>North</td>
+              <td>12</td>
+            </tr>
+            <tr>
+              <td>South</td>
+              <td>7</td>
+            </tr>
+          </table>
+          <svg class="role-img-svg" width="40" height="40" role="img" xmlns="http://www.w3.org/2000/svg">
+            <rect width="40" height="40" fill="#6a4a2f"></rect>
+          </svg>
+          <p>
+            <span role="button" tabindex="0">Div-like button role without Space/Enter handler</span>
           </p>
         </div>
       </section>
