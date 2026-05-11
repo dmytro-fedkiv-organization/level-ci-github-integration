@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>Acme Analytics</title>
     <style>
       :root {
@@ -150,6 +150,28 @@
         height: 24px;
         width: 48px;
       }
+
+      .extra-a11y {
+        border: 1px dashed #888;
+        margin-top: 20px;
+        padding: 16px;
+      }
+
+      .extra-a11y .strip-focus:focus {
+        box-shadow: none;
+        outline: none;
+      }
+
+      .extra-a11y table {
+        border-collapse: collapse;
+        margin-top: 12px;
+        width: 100%;
+      }
+
+      .extra-a11y td {
+        border: 1px solid #3b2719;
+        padding: 8px;
+      }
     </style>
   </head>
   <body>
@@ -217,6 +239,38 @@
           <a href="https://example.com" target="_blank">Example.com in new tab</a>
         </p>
         <p contenteditable="true" spellcheck="false"></p>
+
+        <div class="extra-a11y">
+          <p>
+            <a href="#extra-a11y" class="strip-focus">KPI drilldown</a>
+            (focus ring removed on this link)
+          </p>
+          <input
+            type="text"
+            placeholder="aria-describedby points nowhere"
+            aria-describedby="id-that-does-not-exist-on-page"
+          >
+          <p>
+            <a href="#void"></a>
+          </p>
+          <table>
+            <tr>
+              <td>Metric</td>
+              <td>Value</td>
+            </tr>
+            <tr>
+              <td>Activation</td>
+              <td>41%</td>
+            </tr>
+            <tr>
+              <td>Retention</td>
+              <td>88%</td>
+            </tr>
+          </table>
+          <p>
+            <span role="link" tabindex="0">Fake role=link without href or keyboard Enter</span>
+          </p>
+        </div>
       </section>
     </main>
 
