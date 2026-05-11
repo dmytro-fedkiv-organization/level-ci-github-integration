@@ -1,13 +1,45 @@
 name: Level CI Accessibility Analysis
 
-on: [push, pull_request]
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
 
 jobs:
+  e2e-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+        env:
+          CLOUDSMITH_TOKEN: ${{ secrets.CLOUDSMITH_TOKEN }}
+
+      - name: Install Playwright Chromium
+        run: npx playwright install chromium --with-deps
+
+      - name: Run Playwright e2e tests
+        run: npm run test:e2e
+        env:
+          CI: true
+
   accessibility-analysis:
     runs-on: ubuntu-latest
-
+    needs: e2e-tests
     steps:
-      - name: Checkout level-ci.config.ts
+      - name: Checkout Level CI config
         uses: actions/checkout@v4
         with:
           sparse-checkout: level-ci.config.ts
@@ -17,5 +49,3 @@ jobs:
         uses: UserWayOrg/cicd-action@dev
         env:
           LEVEL_CI_TOKEN: ${{ secrets.LEVEL_CI_TOKEN }}
-          LEVEL_CI_USERNAME: ${{ secrets.LEVEL_CI_USERNAME }}
-          LEVEL_CI_PASSWORD: ${{ secrets.LEVEL_CI_PASSWORD }}

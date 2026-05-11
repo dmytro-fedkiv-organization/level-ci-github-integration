@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "serve": "node scripts/serve-static.mjs",
+    "test:e2e": "playwright test",
+    "test:e2e:ui": "playwright test --ui"
   },
   "repository": {
     "type": "git",
@@ -17,8 +19,9 @@
   "homepage": "https://github.com/dmytro-fedkiv-la/level-ci-github-integration#readme",
   "description": "",
   "devDependencies": {
-    "@types/node": "^24.1.0",
-    "@userway/cicd-cli": "^0.1.5-alpha.22",
-    "@userway/cicd-core": "^0.1.5-alpha.22"
+    "@level-ci/a11y-playwright": "^0.2.1",
+    "@level-ci/cli": "^0.1.16",
+    "@playwright/test": "^1.60.0",
+    "@types/node": "^24.1.0"
   }
 }
