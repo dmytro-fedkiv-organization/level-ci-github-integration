@@ -188,6 +188,39 @@
         display: block;
         margin-top: 8px;
       }
+
+      .even-more-violations {
+        border: 1px dashed #2a5f7c;
+        margin-top: 20px;
+        padding: 16px;
+      }
+
+      .even-more-violations meter,
+      .even-more-violations progress {
+        display: block;
+        margin: 8px 0;
+        width: 100%;
+        max-width: 280px;
+      }
+
+      .even-more-violations .tiny-target {
+        display: inline-block;
+        font-size: 4px;
+        height: 8px;
+        line-height: 8px;
+        overflow: hidden;
+        width: 8px;
+      }
+
+      .even-more-violations .dup-main {
+        border: 1px dotted #3b2719;
+        margin-top: 12px;
+        padding: 8px;
+      }
+
+      .even-more-violations .broken-dl {
+        margin: 12px 0;
+      }
     </style>
   </head>
   <body>
@@ -316,6 +349,47 @@
           <p>
             <span role="button" tabindex="0">Div-like button role without Space/Enter handler</span>
           </p>
+        </div>
+
+        <div class="even-more-violations">
+          <p lang="not-a-valid-bcp47-tag-xx">Paragraph declares an invalid lang code on purpose.</p>
+          <section aria-labelledby="missing-region-label">
+            <p>Section references aria-labelledby for an id that does not exist.</p>
+          </section>
+          <div role="region">
+            <p>Region role without aria-label or aria-labelledby.</p>
+          </div>
+          <p>Meter element has no accessible name:</p>
+          <meter min="0" max="100" value="62"></meter>
+          <p>Progress element has no accessible name:</p>
+          <progress max="100" value="33"></progress>
+          <p>Image submit control has no alt text:</p>
+          <input type="image" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='32'%3E%3Crect width='48' height='32' fill='%233b2719'/%3E%3Ctext x='10' y='22' fill='%23fff' font-size='12'%3EGO%3C/text%3E%3C/svg%3E" name="submit_go">
+          <dl class="broken-dl">
+            <dt>Latency budget</dt>
+          </dl>
+          <p>Second radio in pair has no label:</p>
+          <input type="radio" name="demo-plan" id="demo-plan-a" checked>
+          <label for="demo-plan-a">Annual</label>
+          <input type="radio" name="demo-plan" id="demo-plan-b">
+          <button type="button" aria-controls="panel-definitely-missing">Toggle missing panel</button>
+          <p>
+            <a href="#accesskey-demo" accesskey="k">Accesskey demo (k)</a>
+          </p>
+          <p>
+            <a href="#tiny" class="tiny-target" title="x">x</a>
+            (intentionally tiny click target)
+          </p>
+          <div class="dup-main" role="main">
+            <p>Nested duplicate landmark: inner role=main inside the document main.</p>
+          </div>
+          <div aria-busy="maybe-not-boolean">Invalid aria-busy value (must be true or false).</div>
+          <table aria-sort="sideways">
+            <tr>
+              <td>aria-sort is not a valid value on this table</td>
+            </tr>
+          </table>
+          <iframe src="about:blank" title=""></iframe>
         </div>
       </section>
     </main>
