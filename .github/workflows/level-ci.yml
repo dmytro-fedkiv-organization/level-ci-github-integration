@@ -62,3 +62,5 @@ jobs:
         uses: levelaccess/level-ci@dev
         env:
           LEVEL_CI_TOKEN: ${{ secrets.LEVEL_CI_TOKEN }}
+        with:
+          branch: ${{ github.ref_name }}
