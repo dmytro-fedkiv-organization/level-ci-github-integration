@@ -87,6 +87,69 @@
         display: block;
         max-width: 100%;
       }
+
+      .promo {
+        background: #fff;
+        border: 2px dashed #c4a574;
+        margin-top: 28px;
+        padding: 16px;
+      }
+
+      .promo h4 {
+        margin: 0 0 8px;
+      }
+
+      .promo .warn {
+        background: #fffde7;
+        color: #f5e6a3;
+        font-size: 15px;
+        margin: 0 0 12px;
+      }
+
+      .promo .ghost-input {
+        border: 1px solid #ccc;
+        font-size: 16px;
+        padding: 10px;
+        width: 100%;
+        box-sizing: border-box;
+      }
+
+      .promo .tile {
+        background: #3b2719;
+        color: #fff;
+        cursor: pointer;
+        display: inline-block;
+        margin-top: 8px;
+        padding: 10px 14px;
+        user-select: none;
+      }
+
+      .sandbox {
+        border-top: 2px solid #3b2719;
+        margin-top: 40px;
+        padding-top: 24px;
+      }
+
+      .sandbox fieldset {
+        border: 1px solid #3b2719;
+        margin: 16px 0;
+        padding: 12px;
+      }
+
+      .sandbox iframe {
+        border: 1px solid #888;
+        display: block;
+        height: 48px;
+        margin: 12px 0;
+        width: 100%;
+        max-width: 280px;
+      }
+
+      .sandbox .icon-btn img {
+        display: block;
+        height: 24px;
+        width: 48px;
+      }
     </style>
   </head>
   <body>
@@ -112,14 +175,49 @@
           <label>Email</label>
           <input id="email" type="email">
 
+          <label>Company</label>
+          <input id="name" type="text" placeholder="Duplicate id on purpose">
+
           <button type="submit">Send report</button>
         </form>
+
+        <div class="promo">
+          <h4>Limited beta spots</h4>
+          <p class="warn">Low-contrast notice: this line is intentionally hard to read.</p>
+          <input class="ghost-input" type="text" placeholder="No label or aria-label">
+          <div class="tile" onclick="alert('tile')"></div>
+        </div>
       </section>
     </header>
 
     <main>
       <h2>Trusted by teams moving too fast for spreadsheets</h2>
       <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='640' height='260'%3E%3Crect width='640' height='260' fill='%233b2719'/%3E%3Ccircle cx='160' cy='130' r='72' fill='%23f7d6b1'/%3E%3Crect x='285' y='70' width='210' height='120' fill='%23fff8ed'/%3E%3C/svg%3E">
+      <h4>Customer logos (heading level skips h3)</h4>
+      <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='40'%3E%3Crect width='120' height='40' fill='%23888'/%3E%3C/svg%3E">
+
+      <section class="sandbox">
+        <h3>Widget lab (heading order: h3 should not follow h4)</h3>
+        <p>
+          <a href="#top" tabindex="3">Positive tabindex link</a>
+        </p>
+        <fieldset>
+          <label><input type="checkbox" name="agree"> I agree</label>
+          <select>
+            <option value="">Region</option>
+            <option value="eu">EU</option>
+            <option value="us">US</option>
+          </select>
+        </fieldset>
+        <iframe src="about:blank"></iframe>
+        <button type="button" class="icon-btn">
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='24'%3E%3Crect width='48' height='24' fill='%23999'/%3E%3C/svg%3E" alt="">
+        </button>
+        <p>
+          <a href="https://example.com" target="_blank">Example.com in new tab</a>
+        </p>
+        <p contenteditable="true" spellcheck="false"></p>
+      </section>
     </main>
 
     <footer>
