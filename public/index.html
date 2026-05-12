@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <title>Acme Analytics</title>
     <style>
       :root {
@@ -172,6 +172,75 @@
         border: 1px solid #3b2719;
         padding: 8px;
       }
+
+      .a11y-battery {
+        border: 3px double #1a1a1a;
+        margin-top: 32px;
+        padding: 20px;
+      }
+
+      .a11y-battery h2 {
+        margin-top: 0;
+      }
+
+      .a11y-battery .kill-focus:focus {
+        outline: 0;
+      }
+
+      .a11y-battery .lowc {
+        background: #fff;
+        color: #fffff0;
+        font-size: 13px;
+        margin: 8px 0;
+      }
+
+      .a11y-battery .prm-bad {
+        animation: a11yspin 1.2s linear infinite;
+        display: inline-block;
+        margin: 8px 0;
+      }
+
+      @keyframes a11yspin {
+        to {
+          transform: rotate(1turn);
+        }
+      }
+
+      .a11y-battery .tiny-hit {
+        display: inline-block;
+        font-size: 3px;
+        height: 6px;
+        line-height: 6px;
+        overflow: hidden;
+        width: 6px;
+      }
+
+      .a11y-battery marquee {
+        background: #ffe4e4;
+        display: block;
+        margin: 8px 0;
+        max-width: 100%;
+      }
+
+      .a11y-battery .dup-main {
+        border: 1px dotted #333;
+        margin-top: 12px;
+        padding: 8px;
+      }
+
+      .a11y-battery table.dataish td,
+      .a11y-battery table.dataish th {
+        border: 1px solid #3b2719;
+        padding: 6px;
+      }
+
+      .a11y-battery .scroll-stack {
+        max-height: 56px;
+        overflow: auto;
+        padding: 4px;
+        width: 100%;
+        max-width: 320px;
+      }
     </style>
   </head>
   <body>
@@ -270,6 +339,146 @@
           <p>
             <span role="link" tabindex="0">Fake role=link without href or keyboard Enter</span>
           </p>
+        </div>
+
+        <div class="a11y-battery" id="a11y-battery">
+          <h2>Violation battery (h2 after h3: wrong outline)</h2>
+          <h6></h6>
+          <p class="lowc">Extra-low-contrast filler text for automated contrast checks.</p>
+          <p lang="xx-not-real-locale">Invalid BCP47 lang attribute on this paragraph.</p>
+          <p>
+            <a href="#a" class="kill-focus">Link with outline removed on focus</a>
+            <a href="#b" tabindex="5">Second positive tabindex link</a>
+          </p>
+          <p>
+            <a href="#read1">Read more</a>
+            ·
+            <a href="#read2">Read more</a>
+            (identical visible text, different destinations)
+          </p>
+          <p>
+            <a href="#void2"></a>
+            <a href="javascript:void(0)">javascript: URL</a>
+          </p>
+          <div aria-hidden="true">
+            <button type="button">Focusable inside aria-hidden</button>
+          </div>
+          <label for="missing-input-id-xyz">Orphan label for attribute</label>
+          <input id="different-field-id" type="text" placeholder="Label for does not match id">
+          <ul>
+            <span>Not an li</span>
+          </ul>
+          <ol>
+            <div role="presentation">Div pretending to be list structure</div>
+          </ol>
+          <dl>
+            <dt>Orphan term</dt>
+            <dd>Ok pair</dd>
+            <dt>Second term only</dt>
+          </dl>
+          <table class="dataish">
+            <tr>
+              <td>Col A</td>
+              <td>Col B</td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>2</td>
+            </tr>
+          </table>
+          <table role="presentation" class="dataish">
+            <tr>
+              <td>Presented</td>
+              <td>As layout</td>
+            </tr>
+          </table>
+          <table aria-sort="nope">
+            <tr>
+              <td>Invalid aria-sort</td>
+            </tr>
+          </table>
+          <input type="text" aria-describedby="ghost-help-id" placeholder="Second bad describedby">
+          <input type="text" autocomplete="totally-wrong-token" placeholder="Bad autocomplete token">
+          <input type="password" placeholder="Password, no label">
+          <textarea rows="2" placeholder="Notes, no label"></textarea>
+          <input type="file">
+          <select name="battery-unlabeled">
+            <option value="">Pick</option>
+            <option value="a">Alpha</option>
+          </select>
+          <fieldset>
+            <input type="radio" name="bat-r" id="bat-r1" checked>
+            <label for="bat-r1">One</label>
+            <input type="radio" name="bat-r" id="bat-r2">
+          </fieldset>
+          <p>Meter / progress unnamed:</p>
+          <meter min="0" max="100" value="44"></meter>
+          <progress value="0.2"></progress>
+          <input type="image" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='44' height='28'%3E%3Crect width='44' height='28' fill='%23333'/%3E%3C/svg%3E" name="imgbtn">
+          <svg width="36" height="36" role="img" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="18" cy="18" r="16" fill="#555"></circle>
+          </svg>
+          <img tabindex="0" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='32'%3E%3Crect width='48' height='32' fill='%23777'/%3E%3C/svg%3E" alt="">
+          <section aria-labelledby="no-such-battery-heading">
+            <p>Section with missing labelledby.</p>
+          </section>
+          <div role="region">
+            <p>Unnamed region landmark.</p>
+          </div>
+          <div role="banner">
+            <p>Nested banner role inside page content.</p>
+          </div>
+          <div class="dup-main" role="main">
+            <p>Second main landmark nested inside document main.</p>
+          </div>
+          <div role="listbox" aria-activedescendant="nonexistent-option">
+            <div>Not role=option</div>
+          </div>
+          <span role="tab" tabindex="0">Lonely tab role</span>
+          <span role="checkbox" tabindex="0">Checkbox role without aria-checked</span>
+          <span role="heading">Heading role without aria-level</span>
+          <div role="heading" aria-level="9">Fake heading level 9</div>
+          <button type="button" aria-controls="missing-panel-1" aria-expanded="maybe">Bad aria-expanded</button>
+          <div aria-busy="thinking">Invalid aria-busy</div>
+          <div aria-disabled="sort-of">Invalid aria-disabled</div>
+          <p>
+            <span class="prm-bad" aria-hidden="true">Spinning (motion) with aria-hidden</span>
+          </p>
+          <marquee>Deprecated marquee text</marquee>
+          <p>
+            <a href="#acc1" accesskey="1">Accesskey 1</a>
+            <a href="#acc2" accesskey="2">Accesskey 2</a>
+          </p>
+          <p>
+            <a href="#tiny" class="tiny-hit">·</a>
+            micro-link target
+          </p>
+          <iframe src="about:blank"></iframe>
+          <iframe src="about:blank" title=""></iframe>
+          <div class="scroll-stack">
+            <button type="button">Tall stack line 1</button>
+            <button type="button">Tall stack line 2</button>
+            <button type="button">Tall stack line 3</button>
+            <button type="button">Tall stack line 4</button>
+            <button type="button">Tall stack line 5</button>
+          </div>
+          <p contenteditable="true" aria-readonly="true">contenteditable plus aria-readonly conflict</p>
+          <button type="button" class="icon-btn2">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32'%3E%3Crect width='32' height='32' fill='%23888'/%3E%3C/svg%3E" alt="">
+          </button>
+          <p>
+            <a href="https://example.org" target="_blank">Ext link no rel</a>
+          </p>
+          <p>
+            <span role="button" tabindex="0">Custom button span</span>
+            <span role="link" tabindex="0">Custom link span</span>
+          </p>
+          <table>
+            <tr>
+              <th scope="diagonal"></th>
+              <td>Bad scope value on th</td>
+            </tr>
+          </table>
         </div>
       </section>
     </main>
