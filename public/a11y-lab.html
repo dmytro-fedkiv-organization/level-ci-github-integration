@@ -1,8 +1,11 @@
 <!doctype html>
 <html>
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+    />
     <title>Accessibility lab</title>
     <style>
       :root {
@@ -79,16 +82,16 @@
       <h3>Panel (skips h2)</h3>
       <div class="panel">
         <label for="lab-x">Field X</label>
-        <input id="lab-y" type="text" placeholder="Label for mismatch">
-        <input type="password" placeholder="No label">
+        <input id="lab-y" type="text" placeholder="Label for mismatch" />
+        <input type="password" placeholder="No label" />
         <select name="tier">
           <option value="">Tier</option>
           <option value="p">Pro</option>
         </select>
         <fieldset>
-          <input type="radio" name="r" id="r1" checked>
+          <input type="radio" name="r" id="r1" checked />
           <label for="r1">A</label>
-          <input type="radio" name="r" id="r2">
+          <input type="radio" name="r" id="r2" />
         </fieldset>
         <button type="button"></button>
         <p>
@@ -106,7 +109,9 @@
         <div role="region">
           <p>Unnamed region.</p>
         </div>
-        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='48'%3E%3Crect width='120' height='48' fill='%23444'/%3E%3C/svg%3E">
+        <img
+          src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='48'%3E%3Crect width='120' height='48' fill='%23444'/%3E%3C/svg%3E"
+        />
         <table class="bad">
           <tr>
             <td>A</td>
@@ -115,9 +120,22 @@
         </table>
         <iframe class="mini" src="about:blank"></iframe>
         <button type="button">
-          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24'%3E%3Crect width='24' height='24' fill='%23999'/%3E%3C/svg%3E" alt="">
+          <img
+            src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24'%3E%3Crect width='24' height='24' fill='%23999'/%3E%3C/svg%3E"
+            alt=""
+          />
         </button>
-        <div onclick="alert('x')" style="cursor:pointer;margin-top:12px;padding:8px;background:#333;color:#fff;width:fit-content"></div>
+        <div
+          onclick="alert('x')"
+          style="
+            cursor: pointer;
+            margin-top: 12px;
+            padding: 8px;
+            background: #333;
+            color: #fff;
+            width: fit-content;
+          "
+        ></div>
       </div>
       <p contenteditable="true"></p>
     </main>
