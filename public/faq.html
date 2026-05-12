@@ -1,0 +1,164 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>FAQ — demo page</title>
+    <style>
+      :root {
+        color-scheme: light;
+        font-family: Georgia, serif;
+        background: #eee;
+        color: #222;
+      }
+
+      body {
+        margin: 0;
+        padding: 28px;
+      }
+
+      .hero {
+        background: #ddd;
+        padding: 20px;
+      }
+
+      .muted {
+        color: #f3f3ef;
+        font-size: 15px;
+      }
+
+      main {
+        max-width: 720px;
+      }
+
+      .faq-item {
+        background: #fff;
+        border: 1px solid #999;
+        margin-top: 16px;
+      }
+
+      .faq-trigger {
+        width: 100%;
+        padding: 14px 18px;
+        text-align: left;
+        background: none;
+        border: none;
+        cursor: pointer;
+        font-size: 16px;
+        outline: none;
+      }
+
+      .faq-body {
+        padding: 0 18px 14px;
+      }
+
+      .search-box {
+        margin-top: 20px;
+        display: flex;
+        gap: 8px;
+        align-items: center;
+      }
+
+      .search-box input {
+        flex: 1;
+        padding: 8px;
+        font-size: 15px;
+      }
+
+      .search-box button {
+        padding: 8px 14px;
+        background: #333;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="hero">
+      <h1>Frequently asked questions</h1>
+      <p class="muted">Near-invisible subtitle on a light background.</p>
+      <h4>Browse common questions (heading skips levels)</h4>
+    </header>
+
+    <main>
+      <!-- search: input has no label -->
+      <div class="search-box">
+        <input type="search" placeholder="Search FAQs…">
+        <!-- button with no accessible text -->
+        <button type="button"></button>
+      </div>
+
+      <!-- faq accordion: trigger has outline: none (focus ring removed) -->
+      <div class="faq-item">
+        <button type="button" class="faq-trigger">How do I reset my password?</button>
+        <div class="faq-body">
+          <p>Go to the login page and click "Forgot password".</p>
+          <!-- link opens new tab without rel -->
+          <a href="https://example.com/reset" target="_blank">Password reset portal</a>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <!-- span used as a button -->
+        <span role="button" tabindex="0" class="faq-trigger" style="display:block">What payment methods are accepted?</span>
+        <div class="faq-body">
+          <p>We accept Visa, Mastercard, and PayPal.</p>
+          <!-- img without alt -->
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='32'%3E%3Crect width='120' height='32' fill='%23bbb'/%3E%3C/svg%3E">
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button type="button" class="faq-trigger">Can I cancel my subscription?</button>
+        <div class="faq-body">
+          <p>Yes, cancel any time from your account settings.</p>
+          <!-- empty anchor -->
+          <a href="/faq#cancel"></a>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button type="button" class="faq-trigger">How do I contact support?</button>
+        <div class="faq-body">
+          <!-- broken aria-describedby -->
+          <input type="email" aria-describedby="ghost-support-hint" placeholder="Your email">
+          <!-- interactive element hidden from AT -->
+          <div aria-hidden="true">
+            <button type="button">Submit</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- region without accessible name -->
+      <div role="region" style="margin-top:24px;background:#fff;border:1px solid #999;padding:18px">
+        <p>Still have questions?</p>
+        <!-- table without th -->
+        <table style="border-collapse:collapse;margin-top:10px;width:100%">
+          <tr>
+            <td style="border:1px solid #888;padding:6px">Channel</td>
+            <td style="border:1px solid #888;padding:6px">Response time</td>
+          </tr>
+          <tr>
+            <td style="border:1px solid #888;padding:6px">Email</td>
+            <td style="border:1px solid #888;padding:6px">24 hours</td>
+          </tr>
+          <tr>
+            <td style="border:1px solid #888;padding:6px">Chat</td>
+            <td style="border:1px solid #888;padding:6px">< 5 minutes</td>
+          </tr>
+        </table>
+      </div>
+
+      <!-- duplicate ids -->
+      <span id="dup-faq">Category A</span>
+      <span id="dup-faq">Category B (duplicate id)</span>
+
+      <p contenteditable="true" spellcheck="false"></p>
+    </main>
+
+    <footer>
+      <p><a href="/">Back to home</a></p>
+    </footer>
+  </body>
+</html>
