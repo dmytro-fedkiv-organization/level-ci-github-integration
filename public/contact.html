@@ -1,0 +1,132 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Contact us — demo page</title>
+    <style>
+      :root {
+        color-scheme: light;
+        font-family: Georgia, serif;
+        background: #eee;
+        color: #222;
+      }
+
+      body {
+        margin: 0;
+        padding: 28px;
+      }
+
+      .hero {
+        background: #ddd;
+        padding: 20px;
+      }
+
+      .muted {
+        color: #f0f0ec;
+        font-size: 15px;
+      }
+
+      main {
+        max-width: 720px;
+      }
+
+      .card {
+        background: #fff;
+        border: 1px solid #999;
+        margin-top: 24px;
+        padding: 18px;
+      }
+
+      .card input,
+      .card select,
+      .card textarea {
+        display: block;
+        margin-top: 10px;
+        width: 100%;
+        max-width: 420px;
+      }
+
+      .btn {
+        margin-top: 14px;
+        padding: 10px 18px;
+        background: #333;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="hero">
+      <h1>Contact us</h1>
+      <p class="muted">Low-contrast subheading text that is hard to read.</p>
+      <h4>Reach out to our team (heading level skips h2/h3)</h4>
+    </header>
+
+    <main>
+      <section class="card" aria-labelledby="missing-contact-label">
+        <p>Fill in the form below to send us a message.</p>
+
+        <!-- label for= does not match any input id -->
+        <label for="full-name">Full name</label>
+        <input id="fname" type="text" placeholder="Your name">
+
+        <!-- no label at all -->
+        <input type="email" placeholder="Email address">
+
+        <!-- select without label -->
+        <select name="topic">
+          <option value="">Choose a topic</option>
+          <option value="sales">Sales</option>
+          <option value="support">Support</option>
+        </select>
+
+        <!-- textarea without label -->
+        <textarea rows="4" placeholder="Your message"></textarea>
+
+        <!-- empty button -->
+        <button type="submit" class="btn"></button>
+
+        <!-- broken aria-describedby reference -->
+        <input type="text" aria-describedby="nonexistent-hint" placeholder="Order reference">
+
+        <!-- img without alt -->
+        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='40'%3E%3Crect width='160' height='40' fill='%23888'/%3E%3C/svg%3E">
+
+        <!-- link opens new tab without warning -->
+        <p>
+          <a href="https://example.com/privacy" target="_blank">Privacy policy</a>
+        </p>
+
+        <!-- link with no text -->
+        <a href="/contact#map"></a>
+
+        <!-- element hidden from AT but focusable -->
+        <div aria-hidden="true">
+          <button type="button">Hidden from screen readers</button>
+        </div>
+
+        <!-- duplicate id -->
+        <span id="dup-contact">Office A</span>
+        <span id="dup-contact">Office B (duplicate id)</span>
+
+        <!-- region without accessible name -->
+        <div role="region">
+          <p>Social links section with no region label.</p>
+          <a href="https://twitter.com" target="_blank">Twitter</a>
+          <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+        </div>
+
+        <!-- interactive div with no role -->
+        <div onclick="alert('submitted')" style="cursor:pointer;display:inline-block;margin-top:12px;padding:10px 16px;background:#555;color:#fff">Submit anyway</div>
+      </section>
+
+      <p contenteditable="true" spellcheck="false"></p>
+    </main>
+
+    <footer>
+      <p><a href="/">Back to home</a></p>
+    </footer>
+  </body>
+</html>
