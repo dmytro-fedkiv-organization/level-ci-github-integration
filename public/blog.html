@@ -1,0 +1,106 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Blog — demo page</title>
+    <style>
+      :root {
+        color-scheme: light;
+        font-family: Georgia, serif;
+        background: #eee;
+        color: #222;
+      }
+
+      body {
+        margin: 0;
+        padding: 28px;
+      }
+
+      .hero {
+        background: #ddd;
+        padding: 20px;
+      }
+
+      .muted {
+        color: #f2f2ee;
+        font-size: 15px;
+      }
+
+      main {
+        max-width: 720px;
+      }
+
+      article {
+        background: #fff;
+        border: 1px solid #999;
+        margin-top: 24px;
+        padding: 18px;
+      }
+
+      article .comments input {
+        display: block;
+        margin-top: 10px;
+        width: 100%;
+        max-width: 420px;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="hero">
+      <h1>Company blog</h1>
+      <p class="muted">Low-contrast tagline on a light panel.</p>
+      <h4>Latest posts (heading skips levels)</h4>
+    </header>
+
+    <main>
+      <article>
+        <h2>Release notes for May</h2>
+        <p>We shipped new accessibility tools for your team.</p>
+        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='80'%3E%3Crect width='200' height='80' fill='%23aaa'/%3E%3C/svg%3E">
+        <p><a href="https://example.com/post" target="_blank">Read on external site</a></p>
+        <a href="/blog#top"></a>
+      </article>
+
+      <article>
+        <h2>Engineering roundup</h2>
+        <div class="comments">
+          <p>Add a comment</p>
+          <input type="text" placeholder="Your name">
+          <textarea rows="2" placeholder="Comment" style="display:block;margin-top:10px;width:100%;max-width:420px"></textarea>
+          <button type="button"></button>
+        </div>
+        <input type="text" aria-describedby="ghost-blog-hint" placeholder="Subscribe via email" style="margin-top:14px;width:100%;max-width:420px">
+      </article>
+
+      <div role="region">
+        <p>Related posts — unnamed region.</p>
+        <table style="border-collapse:collapse;margin-top:10px;max-width:480px">
+          <tr>
+            <td style="border:1px solid #888;padding:6px">Title</td>
+            <td style="border:1px solid #888;padding:6px">Date</td>
+          </tr>
+          <tr>
+            <td style="border:1px solid #888;padding:6px">Q1 wrap-up</td>
+            <td style="border:1px solid #888;padding:6px">Apr 1</td>
+          </tr>
+        </table>
+      </div>
+
+      <div aria-hidden="true">
+        <button type="button">Share</button>
+      </div>
+
+      <span id="dup-blog">Tag A</span>
+      <span id="dup-blog">Tag B (duplicate id)</span>
+
+      <div onclick="alert('rss')" style="cursor:pointer;display:inline-block;margin-top:14px;padding:10px 14px;background:#555;color:#fff">RSS feed</div>
+
+      <p contenteditable="true" spellcheck="false"></p>
+    </main>
+
+    <footer>
+      <p><a href="/">Back to home</a></p>
+    </footer>
+  </body>
+</html>
