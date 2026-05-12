@@ -1,0 +1,152 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Barriers tour — demo page</title>
+    <style>
+      :root {
+        color-scheme: light;
+        font-family: Georgia, serif;
+        background: #eee;
+        color: #222;
+      }
+
+      body {
+        margin: 0;
+        padding: 28px;
+      }
+
+      .hero {
+        background: #ddd;
+        padding: 20px;
+      }
+
+      .muted {
+        color: #f5f5f0;
+        font-size: 15px;
+      }
+
+      .strip:focus {
+        outline: 0;
+      }
+
+      main {
+        max-width: 720px;
+      }
+
+      .card {
+        background: #fff;
+        border: 1px solid #999;
+        margin-top: 24px;
+        padding: 18px;
+      }
+
+      .card input,
+      .card select,
+      .card textarea {
+        display: block;
+        margin-top: 10px;
+        width: 100%;
+        max-width: 420px;
+      }
+
+      table.grid {
+        border-collapse: collapse;
+        margin-top: 14px;
+      }
+
+      table.grid td {
+        border: 1px solid #666;
+        padding: 8px;
+      }
+
+      iframe.embed {
+        border: 1px solid #888;
+        display: block;
+        height: 52px;
+        margin-top: 14px;
+        width: 100%;
+        max-width: 300px;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="hero">
+      <h1>Barriers tour</h1>
+      <p class="muted">Narration with very light text on a light panel.</p>
+      <h4>Checkout steps (heading skips levels after h1)</h4>
+    </header>
+
+    <main>
+      <section class="card" aria-labelledby="missing-step-title">
+        <p>Section references a missing aria-labelledby id.</p>
+        <label for="ship-addr">Shipping street</label>
+        <input id="ship-note" type="text" placeholder="Label for does not match id">
+        <input type="tel" placeholder="Phone, no label">
+        <textarea rows="2" placeholder="Instructions, no label"></textarea>
+        <select name="ship-speed">
+          <option value="">Speed</option>
+          <option value="std">Standard</option>
+        </select>
+        <fieldset>
+          <input type="checkbox" name="gift" id="gift">
+          <label for="gift">Gift wrap</label>
+          <input type="checkbox" name="terms" id="terms-missing">
+        </fieldset>
+        <button type="button"></button>
+        <p>
+          <a href="#s1" class="strip" tabindex="7"> tabindex link, focus ring stripped</a>
+        </p>
+        <p>
+          <a href="#z"></a>
+          <a href="javascript:void(0)">javascript: URL</a>
+        </p>
+        <p>
+          <a href="https://example.com" target="_blank">Opens new tab, no rel</a>
+        </p>
+        <div aria-hidden="true">
+          <button type="button">Inside aria-hidden</button>
+        </div>
+        <div role="region">
+          <p>Region without an accessible name.</p>
+        </div>
+        <input type="text" aria-describedby="ghost-desc-ref" placeholder="Broken aria-describedby">
+        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='72'%3E%3Crect width='200' height='72' fill='%23555'/%3E%3C/svg%3E">
+        <table class="grid">
+          <tr>
+            <td>Item</td>
+            <td>Qty</td>
+          </tr>
+          <tr>
+            <td>SKU-9</td>
+            <td>2</td>
+          </tr>
+        </table>
+        <iframe class="embed" src="about:blank"></iframe>
+        <iframe class="embed" src="about:blank" title=""></iframe>
+        <button type="button">
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='28'%3E%3Crect width='28' height='28' fill='%23888'/%3E%3C/svg%3E" alt="">
+        </button>
+        <p>Meter and progress without names:</p>
+        <meter min="0" max="100" value="55"></meter>
+        <progress value="0.4"></progress>
+        <h5></h5>
+        <p>
+          <span role="button" tabindex="0">Span as button, no key handlers</span>
+        </p>
+        <div onclick="alert('ok')" style="cursor:pointer;display:inline-block;margin-top:10px;padding:10px 14px;background:#222;color:#fff"></div>
+      </section>
+      <p contenteditable="true" spellcheck="false"></p>
+    </main>
+
+    <footer>
+      <p>
+        <a href="/">Back to home</a>
+        ·
+        <span id="dup-foot">First</span>
+        <span id="dup-foot">Duplicate id</span>
+      </p>
+    </footer>
+  </body>
+</html>
