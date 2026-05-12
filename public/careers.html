@@ -1,0 +1,110 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Careers — demo page</title>
+    <style>
+      :root {
+        color-scheme: light;
+        font-family: Georgia, serif;
+        background: #eee;
+        color: #222;
+      }
+
+      body {
+        margin: 0;
+        padding: 28px;
+      }
+
+      .hero {
+        background: #ddd;
+        padding: 20px;
+      }
+
+      .muted {
+        color: #f3f3ef;
+        font-size: 15px;
+      }
+
+      main {
+        max-width: 760px;
+      }
+
+      .job {
+        background: #fff;
+        border: 1px solid #999;
+        margin-top: 18px;
+        padding: 16px;
+      }
+
+      .apply input,
+      .apply select,
+      .apply textarea {
+        display: block;
+        margin-top: 8px;
+        width: 100%;
+        max-width: 440px;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="hero">
+      <h1>Careers</h1>
+      <p class="muted">Hard-to-read intro on light gray.</p>
+      <h4>Open roles (heading skips levels)</h4>
+    </header>
+
+    <main>
+      <div class="job">
+        <h2>Software engineer</h2>
+        <p>Build accessible products with us.</p>
+        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='36'%3E%3Crect width='120' height='36' fill='%23888'/%3E%3C/svg%3E">
+      </div>
+
+      <div class="job apply">
+        <h2>Apply</h2>
+        <label for="applicant-email">Email</label>
+        <input id="app-mail" type="email" placeholder="you@example.com">
+        <input type="text" placeholder="LinkedIn URL">
+        <select name="dept">
+          <option value="">Department</option>
+          <option value="eng">Engineering</option>
+          <option value="design">Design</option>
+        </select>
+        <textarea rows="3" placeholder="Cover letter"></textarea>
+        <button type="submit" style="margin-top:12px;padding:10px 18px;background:#333;color:#fff;border:none"></button>
+      </div>
+
+      <div role="region">
+        <p>Perks list — region without name.</p>
+        <ul>
+          <li>Remote friendly</li>
+          <li>Health benefits</li>
+        </ul>
+      </div>
+
+      <iframe src="about:blank" style="width:100%;max-width:320px;height:48px;border:1px solid #999;margin-top:14px"></iframe>
+
+      <a href="https://example.com/jobs" target="_blank">All listings</a>
+      <a href="/careers#form"></a>
+
+      <div aria-hidden="true">
+        <button type="button">Download job PDF</button>
+      </div>
+
+      <input type="text" aria-describedby="missing-referral" placeholder="Employee referral code" style="margin-top:12px;width:100%;max-width:440px">
+
+      <span id="dup-careers">Opening 1</span>
+      <span id="dup-careers">Opening 2 (duplicate id)</span>
+
+      <div onclick="alert('notify')" style="cursor:pointer;display:inline-block;margin-top:12px;padding:10px 14px;background:#555;color:#fff">Notify me of new roles</div>
+
+      <p contenteditable="true" spellcheck="false"></p>
+    </main>
+
+    <footer>
+      <p><a href="/">Back to home</a></p>
+    </footer>
+  </body>
+</html>
