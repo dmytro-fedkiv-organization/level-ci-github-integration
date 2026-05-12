@@ -173,6 +173,20 @@
         padding: 8px;
       }
 
+      .a11y-samples {
+        border: 1px dashed #666;
+        margin-top: 20px;
+        padding: 16px;
+      }
+
+      .a11y-samples-lowc {
+        background: #fff;
+        color: #fefef0;
+        margin: 8px 0;
+      }
+
+      .a11y-samples .strip-outline:focus {
+        outline: 0;
       .a11y-battery {
         border: 3px double #1a1a1a;
         margin-top: 32px;
@@ -362,6 +376,29 @@
           </p>
         </div>
 
+        <div class="a11y-samples">
+          <h4>Sample barriers</h4>
+          <p class="a11y-samples-lowc">Low-contrast paragraph for automated contrast checks.</p>
+          <h5></h5>
+          <p>
+            <a href="#samples-focus" class="strip-outline">Link with no visible focus ring</a>
+          </p>
+          <div aria-hidden="true">
+            <button type="button">Focusable control inside aria-hidden</button>
+          </div>
+          <label for="missing-city-id">City</label>
+          <input id="samples-city-field" type="text" placeholder="Label for does not match this input">
+          <section aria-labelledby="heading-that-is-not-here">
+            <p>Section with broken aria-labelledby reference.</p>
+          </section>
+          <div role="region">
+            <p>Region landmark without aria-label or aria-labelledby.</p>
+          </div>
+          <button type="button" aria-label=""></button>
+          <p>
+            <a href="https://example.net" target="_blank">Opens in new tab without rel</a>
+          </p>
+          <iframe src="about:blank" title=""></iframe>
         <div class="a11y-battery" id="a11y-battery">
           <h2>Violation battery (h2 after h3: wrong outline)</h2>
           <h6></h6>
