@@ -251,6 +251,17 @@
       .a11y-battery .battery-plus figure {
         margin: 12px 0;
       }
+
+      .a11y-battery .battery-ii {
+        border-top: 2px dashed #8b4513;
+        margin-top: 24px;
+        padding-top: 16px;
+      }
+
+      .a11y-battery .battery-ii .dialog-skin {
+        border: 2px solid #3b2719;
+        padding: 12px;
+      }
     </style>
   </head>
   <body>
@@ -531,6 +542,76 @@
             <input type="text" id="actually-other" placeholder="Label for never-wired">
             <button type="button" aria-keyshortcuts="Meta+Meta+Meta+999">Implausible aria-keyshortcuts</button>
             <span role="spinbutton" tabindex="0" aria-valuenow="3">Spinbutton missing valuemin/max</span>
+          </div>
+
+          <div class="battery-ii">
+            <h5>Barrier set II</h5>
+            <div role="application">Unnamed application landmark.</div>
+            <div role="contentinfo">
+              <p>Extra contentinfo landmark nested inside main.</p>
+            </div>
+            <div class="dialog-skin" role="dialog" aria-modal="maybe">
+              <p>Unnamed dialog with invalid aria-modal token.</p>
+            </div>
+            <div role="menu">
+              <span role="menuitem">Menuitem inside unnamed menu</span>
+            </div>
+            <span role="menuitemradio" tabindex="0">Orphan menuitemradio outside menu</span>
+            <div role="textbox" tabindex="0">Div textbox role, no accessible name</div>
+            <div role="searchbox" tabindex="0"></div>
+            <input type="tel" placeholder="Telephone, no label">
+            <input type="url" placeholder="URL field, no label">
+            <input type="date">
+            <input type="range" min="0" max="10" value="4">
+            <input type="color" value="#336699">
+            <output>Output with no accessible name</output>
+            <select name="optgroup-broken">
+              <optgroup>
+                <option value="x">Optgroup missing label attribute</option>
+              </optgroup>
+            </select>
+            <table>
+              <tr>
+                <td headers="ghost-th-id">Cell headers attribute points at missing id</td>
+              </tr>
+            </table>
+            <table>
+              <tr>
+                <td scope="row">scope on td instead of th</td>
+              </tr>
+            </table>
+            <article>
+              <p>Article element with no heading inside.</p>
+            </article>
+            <div aria-live="polite" aria-atomic="iffy">Invalid aria-atomic on live region</div>
+            <button type="button" aria-expanded="true">Expanded state without aria-controls</button>
+            <span aria-current="nominal">Invalid aria-current value</span>
+            <div aria-owns="ghost-own-1 ghost-own-2">aria-owns references missing ids</div>
+            <input id="self-lby" type="text" aria-labelledby="self-lby" placeholder="Labelledby references self only">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" aria-hidden="true">
+              <title>Title inside aria-hidden svg</title>
+              <rect width="32" height="32" fill="#444"></rect>
+            </svg>
+            <label contenteditable="true">contenteditable label text<input type="text" placeholder="nested field"></label>
+            <button type="button" aria-braillelabel="">Empty aria-braillelabel</button>
+            <input type="number" role="spinbutton" aria-valuenow="2" min="0" max="10" value="2" placeholder="Native number plus conflicting role">
+            <div role="grid">
+              <div role="row">
+                <span role="gridcell">Gridcell without columnheader row</span>
+              </div>
+            </div>
+            <div role="radiogroup">
+              <span role="radio" tabindex="0">Radio in group without aria-checked</span>
+            </div>
+            <div role="tablist">
+              <button type="button">Plain button pretending to be tab (no tab role)</button>
+            </div>
+            <table>
+              <caption style="display: none">Visually hidden caption only</caption>
+              <tr>
+                <td>Table has caption display:none</td>
+              </tr>
+            </table>
           </div>
         </div>
       </section>
