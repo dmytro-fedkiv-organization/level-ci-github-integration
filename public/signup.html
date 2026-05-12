@@ -1,0 +1,162 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Sign up — demo page</title>
+    <style>
+      :root {
+        color-scheme: light;
+        font-family: Georgia, serif;
+        background: #eee;
+        color: #222;
+      }
+
+      body {
+        margin: 0;
+        padding: 28px;
+      }
+
+      .hero {
+        background: #ddd;
+        padding: 20px;
+      }
+
+      .muted {
+        color: #f1f1ed;
+        font-size: 15px;
+      }
+
+      main {
+        max-width: 520px;
+      }
+
+      .card {
+        background: #fff;
+        border: 1px solid #999;
+        margin-top: 24px;
+        padding: 22px;
+      }
+
+      .card input,
+      .card select {
+        display: block;
+        margin-top: 10px;
+        width: 100%;
+        max-width: 420px;
+        padding: 7px;
+        font-size: 15px;
+        box-sizing: border-box;
+      }
+
+      .btn {
+        margin-top: 16px;
+        padding: 10px 20px;
+        background: #333;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        font-size: 16px;
+      }
+
+      .social-btn {
+        display: inline-block;
+        margin-top: 12px;
+        margin-right: 8px;
+        padding: 9px 14px;
+        background: #555;
+        color: #fff;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="hero">
+      <h1>Create an account</h1>
+      <p class="muted">Near-invisible tagline on a light panel.</p>
+      <h4>It only takes a minute (heading skips levels)</h4>
+    </header>
+
+    <main>
+      <section class="card" aria-labelledby="missing-signup-label">
+
+        <!-- label for= does not match input id -->
+        <label for="user-name">Username</label>
+        <input id="uname" type="text" placeholder="Choose a username">
+
+        <!-- no label -->
+        <input type="email" placeholder="Email address">
+
+        <!-- no label -->
+        <input type="password" placeholder="Password">
+
+        <!-- no label -->
+        <input type="password" placeholder="Confirm password">
+
+        <!-- select without label -->
+        <select name="country">
+          <option value="">Country</option>
+          <option value="us">United States</option>
+          <option value="ca">Canada</option>
+        </select>
+
+        <!-- fieldset without legend -->
+        <fieldset style="margin-top:14px;border:1px solid #ccc;padding:10px">
+          <input type="checkbox" id="newsletter" name="newsletter">
+          <label for="newsletter">Subscribe to newsletter</label>
+          <br>
+          <!-- checkbox without label -->
+          <input type="checkbox" name="terms" id="terms-cb">
+        </fieldset>
+
+        <!-- empty submit button -->
+        <button type="submit" class="btn"></button>
+
+        <!-- broken aria-describedby -->
+        <input type="text" aria-describedby="ghost-ref-hint" placeholder="Referral code" style="margin-top:14px;width:100%;max-width:420px;padding:7px;box-sizing:border-box">
+
+        <!-- img without alt -->
+        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='48'%3E%3Crect width='180' height='48' fill='%23aaa'/%3E%3C/svg%3E" style="display:block;margin-top:14px">
+
+        <p style="margin-top:16px">Or sign up with:</p>
+
+        <!-- interactive divs, no role or keyboard handling -->
+        <div class="social-btn" onclick="alert('google')">Google</div>
+        <div class="social-btn" onclick="alert('github')">GitHub</div>
+
+        <!-- link opens new tab without rel -->
+        <p style="margin-top:14px">
+          <a href="https://example.com/terms" target="_blank">Terms of service</a>
+          ·
+          <a href="https://example.com/privacy" target="_blank">Privacy policy</a>
+        </p>
+
+        <!-- empty link -->
+        <a href="/signup#help"></a>
+
+        <!-- aria-hidden interactive content -->
+        <div aria-hidden="true" style="margin-top:12px">
+          <button type="button">Already have an account? Log in</button>
+        </div>
+
+        <!-- region without accessible name -->
+        <div role="region" style="margin-top:18px;border-top:1px solid #ddd;padding-top:14px">
+          <p>Security info</p>
+          <meter min="0" max="100" value="40"></meter>
+          <progress value="0.5"></progress>
+        </div>
+
+        <!-- duplicate ids -->
+        <span id="dup-signup">Step 1</span>
+        <span id="dup-signup">Step 2 (duplicate id)</span>
+
+      </section>
+
+      <p contenteditable="true" spellcheck="false"></p>
+    </main>
+
+    <footer style="margin-top:24px">
+      <p><a href="/">Back to home</a></p>
+    </footer>
+  </body>
+</html>
