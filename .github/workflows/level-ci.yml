@@ -1,11 +1,8 @@
 name: Level CI Accessibility Analysis
 
 on:
-  pull_request:
   merge_group:
   push:
-    branches:
-      - main
 
 permissions:
   contents: read
@@ -62,5 +59,3 @@ jobs:
         uses: levelaccess/level-ci@dev
         env:
           LEVEL_CI_TOKEN: ${{ secrets.LEVEL_CI_TOKEN }}
-        with:
-          branch: ${{ github.head_ref }}
