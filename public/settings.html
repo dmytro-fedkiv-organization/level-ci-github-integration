@@ -1,0 +1,114 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Settings — demo page</title>
+    <style>
+      :root {
+        color-scheme: light;
+        font-family: Georgia, serif;
+        background: #eee;
+        color: #222;
+      }
+
+      body {
+        margin: 0;
+        padding: 28px;
+      }
+
+      .hero {
+        background: #ddd;
+        padding: 20px;
+      }
+
+      .muted {
+        color: #f0f0ec;
+        font-size: 15px;
+      }
+
+      main {
+        max-width: 540px;
+      }
+
+      .panel {
+        background: #fff;
+        border: 1px solid #999;
+        margin-top: 20px;
+        padding: 18px;
+      }
+
+      .panel input,
+      .panel select {
+        display: block;
+        margin-top: 8px;
+        width: 100%;
+        max-width: 400px;
+      }
+
+      .tab:focus {
+        outline: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="hero">
+      <h1>Account settings</h1>
+      <p class="muted">Faint subtitle against pale gray.</p>
+      <h4>Profile and preferences (heading skips levels)</h4>
+    </header>
+
+    <main>
+      <section class="panel">
+        <label for="display-name">Display name</label>
+        <input id="dispname" type="text" placeholder="How we show your name">
+        <input type="tel" placeholder="Phone number">
+        <select name="tz">
+          <option value="">Timezone</option>
+          <option value="utc">UTC</option>
+          <option value="est">America/New_York</option>
+        </select>
+      </section>
+
+      <section class="panel">
+        <fieldset>
+          <input type="radio" name="theme" value="light" id="t-light" checked>
+          <label for="t-light">Light</label>
+          <input type="radio" name="theme" value="dark" id="t-dark">
+          <label for="t-dark">Dark</label>
+        </fieldset>
+        <button type="button"></button>
+      </section>
+
+      <section class="panel">
+        <p>Connected accounts</p>
+        <a href="https://example.com/oauth" target="_blank">Link provider</a>
+        <span role="button" tabindex="0">Disconnect all</span>
+      </section>
+
+      <div role="region">
+        <p>Danger zone — unnamed region.</p>
+        <input type="text" aria-describedby="ghost-delete" placeholder="Type DELETE to confirm">
+        <div onclick="alert('delete')" style="cursor:pointer;display:inline-block;margin-top:10px;padding:9px 14px;background:#800;color:#fff">Delete account</div>
+      </div>
+
+      <div aria-hidden="true">
+        <button type="button">Restore defaults</button>
+      </div>
+
+      <p>
+        <a href="/settings#export" class="tab" tabindex="5">Export data (focus ring stripped)</a>
+      </p>
+      <a href="/settings"></a>
+
+      <span id="dup-settings">Row 1</span>
+      <span id="dup-settings">Row 2 (duplicate id)</span>
+
+      <p contenteditable="true" spellcheck="false"></p>
+    </main>
+
+    <footer>
+      <p><a href="/">Back to home</a></p>
+    </footer>
+  </body>
+</html>
