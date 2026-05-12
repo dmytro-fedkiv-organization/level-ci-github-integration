@@ -1,0 +1,228 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Dashboard — demo page</title>
+    <style>
+      :root {
+        color-scheme: light;
+        font-family: Georgia, serif;
+        background: #eee;
+        color: #222;
+      }
+
+      body {
+        margin: 0;
+        padding: 0;
+      }
+
+      .topbar {
+        background: #222;
+        color: #eee;
+        padding: 14px 24px;
+        display: flex;
+        align-items: center;
+        gap: 16px;
+      }
+
+      .topbar-title {
+        font-size: 20px;
+        margin: 0;
+      }
+
+      .topbar nav a {
+        color: #c8c8c0;
+        margin-left: 14px;
+        text-decoration: none;
+        font-size: 14px;
+      }
+
+      .layout {
+        display: flex;
+        min-height: calc(100vh - 52px);
+      }
+
+      .sidebar {
+        width: 200px;
+        background: #fff;
+        border-right: 1px solid #ccc;
+        padding: 20px 12px;
+        flex-shrink: 0;
+      }
+
+      .sidebar ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .sidebar ul li {
+        margin-top: 8px;
+      }
+
+      .sidebar ul li a {
+        display: block;
+        padding: 6px 8px;
+        text-decoration: none;
+        color: #333;
+      }
+
+      .main-content {
+        flex: 1;
+        padding: 24px;
+      }
+
+      .stat-cards {
+        display: flex;
+        gap: 16px;
+        flex-wrap: wrap;
+      }
+
+      .stat-card {
+        background: #fff;
+        border: 1px solid #ccc;
+        padding: 16px;
+        flex: 1;
+        min-width: 140px;
+      }
+
+      .stat-value {
+        font-size: 32px;
+        color: #c4c4bc;
+      }
+
+      .data-table {
+        border-collapse: collapse;
+        margin-top: 24px;
+        width: 100%;
+        max-width: 700px;
+      }
+
+      .data-table td {
+        border: 1px solid #999;
+        padding: 8px 10px;
+      }
+
+      .btn-icon {
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 6px;
+        outline: none;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- top bar: nav links have low contrast on dark background -->
+    <header class="topbar">
+      <!-- h1 inside header, but level skips later -->
+      <p class="topbar-title">Dashboard</p>
+      <nav>
+        <a href="/dashboard.html">Overview</a>
+        <a href="/pricing.html">Billing</a>
+        <a href="/contact.html">Support</a>
+      </nav>
+      <!-- icon button with no label -->
+      <button type="button" class="btn-icon" style="margin-left:auto">
+        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24'%3E%3Crect width='24' height='24' fill='%23888'/%3E%3C/svg%3E" alt="">
+      </button>
+    </header>
+
+    <div class="layout">
+      <!-- sidebar: no nav landmark -->
+      <aside class="sidebar">
+        <ul>
+          <li><a href="/dashboard.html">Overview</a></li>
+          <li><a href="/dashboard.html">Reports</a></li>
+          <li><a href="/dashboard.html">Users</a></li>
+          <li>
+            <!-- empty link -->
+            <a href="/dashboard.html#settings"></a>
+          </li>
+        </ul>
+      </aside>
+
+      <main class="main-content">
+        <!-- heading skips from implicit h1 equivalent to h4 -->
+        <h4>Overview</h4>
+
+        <!-- stat cards: low-contrast values -->
+        <div class="stat-cards">
+          <div class="stat-card">
+            <p>Total users</p>
+            <p class="stat-value">4 821</p>
+          </div>
+          <div class="stat-card">
+            <p>Active sessions</p>
+            <p class="stat-value">312</p>
+          </div>
+          <div class="stat-card">
+            <p>Revenue</p>
+            <p class="stat-value">$18 440</p>
+          </div>
+        </div>
+
+        <!-- progress/meter without labels -->
+        <p style="margin-top:20px">Server load:</p>
+        <meter min="0" max="100" value="73"></meter>
+
+        <p>Uptime:</p>
+        <progress value="0.99"></progress>
+
+        <!-- data table without th or caption -->
+        <table class="data-table">
+          <tr>
+            <td>User</td>
+            <td>Status</td>
+            <td>Last login</td>
+            <td>Actions</td>
+          </tr>
+          <tr>
+            <td>alice@example.com</td>
+            <td>Active</td>
+            <td>2026-05-10</td>
+            <td>
+              <!-- empty action button -->
+              <button type="button" class="btn-icon"></button>
+            </td>
+          </tr>
+          <tr>
+            <td>bob@example.com</td>
+            <td>Suspended</td>
+            <td>2026-04-22</td>
+            <td>
+              <button type="button" class="btn-icon">
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16'%3E%3Crect width='16' height='16' fill='%23666'/%3E%3C/svg%3E" alt="">
+              </button>
+            </td>
+          </tr>
+        </table>
+
+        <!-- region without accessible name -->
+        <div role="region" style="margin-top:24px;background:#fff;border:1px solid #ccc;padding:16px">
+          <p>Notifications</p>
+          <!-- aria-hidden interactive content -->
+          <div aria-hidden="true">
+            <button type="button">Mark all as read</button>
+          </div>
+          <!-- broken aria-describedby -->
+          <input type="text" aria-describedby="ghost-notif-desc" placeholder="Search notifications">
+        </div>
+
+        <!-- duplicate ids -->
+        <span id="dup-dash">Widget A</span>
+        <span id="dup-dash">Widget B (duplicate id)</span>
+
+        <!-- interactive div, no role -->
+        <div onclick="alert('export')" style="cursor:pointer;display:inline-block;margin-top:16px;padding:10px 16px;background:#555;color:#fff">Export data</div>
+
+        <p contenteditable="true" spellcheck="false"></p>
+      </main>
+    </div>
+
+    <footer style="padding:14px 24px;border-top:1px solid #ccc">
+      <p><a href="/">Back to home</a></p>
+    </footer>
+  </body>
+</html>
