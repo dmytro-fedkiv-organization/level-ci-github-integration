@@ -241,6 +241,16 @@
         width: 100%;
         max-width: 320px;
       }
+
+      .a11y-battery .battery-plus {
+        border-top: 2px dashed #666;
+        margin-top: 24px;
+        padding-top: 16px;
+      }
+
+      .a11y-battery .battery-plus figure {
+        margin: 12px 0;
+      }
     </style>
   </head>
   <body>
@@ -479,6 +489,49 @@
               <td>Bad scope value on th</td>
             </tr>
           </table>
+
+          <div class="battery-plus">
+            <h5>Additional generated barriers</h5>
+            <button type="button" aria-label="">Empty aria-label on control</button>
+            <p id="empty-labelby-anchor">&#8203;</p>
+            <div role="region" aria-labelledby="empty-labelby-anchor">Region labelledby effectively empty.</div>
+            <div role="region" aria-labelledby="missing-a missing-b">Region with two missing labelledby ids.</div>
+            <input type="number" placeholder="Number input, no label">
+            <input type="search" list="datalist-that-does-not-exist" placeholder="list= points at missing datalist">
+            <input type="text" aria-invalid="true" placeholder="aria-invalid, no error message">
+            <div role="slider" tabindex="0" aria-valuenow="5" aria-valuemin="10" aria-valuemax="2" aria-label="Min greater than max"></div>
+            <span role="switch" tabindex="0">Switch role missing aria-checked</span>
+            <button type="button" role="none">Button semantics removed via role=none</button>
+            <button type="button" aria-pressed="maybe">Invalid aria-pressed token</button>
+            <div role="combobox" tabindex="0">Combobox missing aria-expanded and controls</div>
+            <span role="treeitem" tabindex="0">treeitem outside role=tree</span>
+            <p><abbr>WCAG</abbr> abbreviation with no title.</p>
+            <p><time>soon</time> relative time without datetime.</p>
+            <figure>
+              <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='40'%3E%3Crect width='80' height='40' fill='%23999'/%3E%3C/svg%3E" alt="">
+            </figure>
+            <input id="battery-dup-id" type="text" value="First duplicate id">
+            <input id="battery-dup-id" type="text" value="Second duplicate id">
+            <div role="alert"></div>
+            <div aria-live="shouting">Invalid aria-live keyword</div>
+            <div aria-relevant="everything">Invalid aria-relevant value</div>
+            <div role="timer">Timer role without assistive name</div>
+            <div role="status"></div>
+            <select multiple size="2" name="multi-sel">
+              <option>Red</option>
+              <option>Blue</option>
+            </select>
+            <p>
+              <map id="badmap" name="badmap">
+                <area shape="rect" coords="0,0,40,20" href="#area1" alt="">
+              </map>
+              <img usemap="#badmap" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='24'%3E%3Crect width='48' height='24' fill='%23666'/%3E%3C/svg%3E" alt="Image map, area alt empty">
+            </p>
+            <label for="never-wired">External label</label>
+            <input type="text" id="actually-other" placeholder="Label for never-wired">
+            <button type="button" aria-keyshortcuts="Meta+Meta+Meta+999">Implausible aria-keyshortcuts</button>
+            <span role="spinbutton" tabindex="0" aria-valuenow="3">Spinbutton missing valuemin/max</span>
+          </div>
         </div>
       </section>
     </main>
