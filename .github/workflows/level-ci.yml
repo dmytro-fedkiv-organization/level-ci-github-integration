@@ -56,6 +56,6 @@ jobs:
           path: ./level-ci-reports
 
       - name: Level CI Accessibility Analysis
-        uses: levelaccess/level-ci@dev
+        uses: levelaccess/level-ci@CA-6949/return-actual-branch-name-instead-of-HEAD
         env:
           LEVEL_CI_TOKEN: ${{ secrets.LEVEL_CI_TOKEN }}
