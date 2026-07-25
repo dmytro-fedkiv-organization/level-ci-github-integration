@@ -1,8 +1,7 @@
 name: Level CI Accessibility Analysis
 
 on:
-  merge_group:
-  push:
+  pull_request:
 
 permissions:
   contents: read
@@ -42,11 +41,17 @@ jobs:
   accessibility-analysis:
     runs-on: ubuntu-latest
     needs: e2e-tests
+    permissions:
+      contents: read
+      checks: write
+      pull-requests: write
     steps:
       - name: Checkout repository (Level CI config)
         uses: actions/checkout@v4
         with:
-          sparse-checkout: level-ci.config.ts
+          sparse-checkout: |
+            level-ci.config.ts
+            level-ci-github-integration.js
           sparse-checkout-cone-mode: false
 
       - name: Download Level CI reports
@@ -55,7 +60,8 @@ jobs:
           name: level-ci-reports
           path: ./level-ci-reports
 
-      - name: Level CI Accessibility Analysis
-        uses: levelaccess/level-ci@CA-6949/return-actual-branch-name-instead-of-HEAD
+      - name: Publish accessibility check and PR comment
+        run: node level-ci-github-integration.js
         env:
           LEVEL_CI_TOKEN: ${{ secrets.LEVEL_CI_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.DMYTRO_FEDKIV_PAT }}
