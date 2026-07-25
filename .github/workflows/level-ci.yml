@@ -61,11 +61,6 @@ jobs:
           name: level-ci-reports
           path: ./level-ci-reports
 
-      - name: Level CI Accessibility Analysis
-        uses: levelaccess/level-ci@CA-6949/return-actual-branch-name-instead-of-HEAD
-        env:
-          LEVEL_CI_TOKEN: ${{ secrets.LEVEL_CI_TOKEN }}
-
       - name: Publish accessibility check and PR comment
         run: node level-ci-github-integration.js
         env:
