@@ -64,4 +64,4 @@ jobs:
         run: node level-ci-github-integration.js
         env:
           LEVEL_CI_TOKEN: ${{ secrets.LEVEL_CI_TOKEN }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.DMYTRO_FEDKIV_PAT }}
