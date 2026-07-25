@@ -189,7 +189,7 @@ async function main() {
   console.log(summary);
 
   const ctx = requireContext();
-  await createCheck(ctx, report, summary);
+  // await createCheck(ctx, report, summary);
   await upsertComment(ctx, summary);
 }
 
