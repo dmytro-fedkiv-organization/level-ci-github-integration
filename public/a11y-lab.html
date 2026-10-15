@@ -1,15 +1,18 @@
 <!doctype html>
 <html>
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <title>Accessibility lab (intentional issues)</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+    />
+    <title>Accessibility lab</title>
     <style>
       :root {
         color-scheme: light;
         font-family: system-ui, sans-serif;
-        background: #fafafa;
-        color: #222;
+        background: #f4f4f4;
+        color: #1a1a1a;
       }
 
       body {
@@ -17,70 +20,50 @@
         padding: 24px;
       }
 
-      .lab-banner {
-        background: #e8e8e8;
-        padding: 16px;
-      }
-
-      .lab-banner h1 {
-        margin: 0 0 8px;
-      }
-
       .lowc {
         background: #fff;
-        color: #fffffe;
-        font-size: 14px;
-        margin: 16px 0;
+        color: #fffffd;
+        margin: 12px 0;
       }
 
       .no-ring:focus {
         outline: 0;
       }
 
-      .grid {
-        display: grid;
-        gap: 20px;
-        margin-top: 24px;
-        max-width: 720px;
-      }
-
       .panel {
-        border: 1px solid #ccc;
+        border: 1px solid #bbb;
+        margin-top: 20px;
+        max-width: 640px;
         padding: 16px;
       }
 
-      .panel input,
-      .panel select {
+      label,
+      input,
+      select {
         display: block;
         margin-top: 8px;
-        width: 100%;
-        max-width: 360px;
+        max-width: 400px;
       }
 
-      .tile {
-        background: #333;
-        color: #fff;
-        cursor: pointer;
-        display: inline-block;
-        margin-top: 12px;
-        padding: 10px 14px;
+      input,
+      select {
+        width: 100%;
       }
 
       table.bad {
         border-collapse: collapse;
         margin-top: 12px;
-        width: 100%;
       }
 
       table.bad td {
-        border: 1px solid #999;
-        padding: 8px;
+        border: 1px solid #888;
+        padding: 6px;
       }
 
       iframe.mini {
         border: 1px solid #888;
         display: block;
-        height: 56px;
+        height: 48px;
         margin-top: 12px;
         width: 100%;
         max-width: 280px;
@@ -88,82 +71,81 @@
     </style>
   </head>
   <body>
-    <div class="lab-banner" role="banner">
-      <h1>Accessibility lab</h1>
-      <p>This page exists only to surface intentional barriers for scanners and demos.</p>
+    <div role="banner">
+      <h1>Lab</h1>
+      <p>Intentional accessibility barriers for tooling demos.</p>
     </div>
 
-    <p class="lowc">Low-contrast body copy used as a contrast stress case.</p>
+    <p class="lowc">Low-contrast paragraph.</p>
 
     <main>
-      <h3>Forms and labels (heading skips h2)</h3>
-
-      <div class="grid">
-        <section class="panel" aria-labelledby="missing-lab-section-title">
-          <p>Section references a missing aria-labelledby id.</p>
-          <label for="lab-city">City</label>
-          <input id="lab-zip" type="text" placeholder="Label for points at wrong id">
-          <input type="email" placeholder="Email with no associated label">
-          <select name="lab-tier">
-            <option value="">Choose tier</option>
-            <option value="p">Pro</option>
-          </select>
-          <fieldset>
-            <input type="radio" name="lab-plan" id="lab-plan-a" checked>
-            <label for="lab-plan-a">Annual</label>
-            <input type="radio" name="lab-plan" id="lab-plan-b">
-          </fieldset>
-          <button type="button"></button>
-          <button type="button" aria-label=""></button>
-        </section>
-
-        <section class="panel">
-          <p>
-            <a href="#lab-forms" class="no-ring" tabindex="4">Positive tabindex and no focus ring</a>
-          </p>
-          <p>
-            <a href="#nowhere"></a>
-          </p>
-          <p>
-            <a href="https://example.com" target="_blank">External link, new tab, no rel</a>
-          </p>
-          <div aria-hidden="true">
-            <button type="button">Button inside aria-hidden</button>
-          </div>
-          <div role="region">
-            <p>Unnamed region landmark.</p>
-          </div>
-        </section>
-
-        <section class="panel">
-          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='80'%3E%3Crect width='200' height='80' fill='%23555'/%3E%3C/svg%3E">
-          <table class="bad">
-            <tr>
-              <td>SKU</td>
-              <td>Qty</td>
-            </tr>
-            <tr>
-              <td>A-1</td>
-              <td>3</td>
-            </tr>
-          </table>
-          <iframe class="mini" src="about:blank"></iframe>
-          <button type="button">
-            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='28'%3E%3Crect width='28' height='28' fill='%23888'/%3E%3C/svg%3E" alt="">
-          </button>
-          <div class="tile" onclick="alert('tile')"></div>
-        </section>
+      <h3>Panel (skips h2)</h3>
+      <div class="panel">
+        <label for="lab-x">Field X</label>
+        <input id="lab-y" type="text" placeholder="Label for mismatch" />
+        <input type="password" placeholder="No label" />
+        <select name="tier">
+          <option value="">Tier</option>
+          <option value="p">Pro</option>
+        </select>
+        <fieldset>
+          <input type="radio" name="r" id="r1" checked />
+          <label for="r1">A</label>
+          <input type="radio" name="r" id="r2" />
+        </fieldset>
+        <button type="button"></button>
+        <p>
+          <a href="#a" class="no-ring" tabindex="5"> tabindex link, no ring</a>
+        </p>
+        <p>
+          <a href="#e"></a>
+        </p>
+        <p>
+          <a href="https://example.com" target="_blank">New tab, no rel</a>
+        </p>
+        <div aria-hidden="true">
+          <button type="button">Hidden subtree button</button>
+        </div>
+        <div role="region">
+          <p>Unnamed region.</p>
+        </div>
+        <img
+          src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='48'%3E%3Crect width='120' height='48' fill='%23444'/%3E%3C/svg%3E"
+        />
+        <table class="bad">
+          <tr>
+            <td>A</td>
+            <td>B</td>
+          </tr>
+        </table>
+        <iframe class="mini" src="about:blank"></iframe>
+        <button type="button">
+          <img
+            src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24'%3E%3Crect width='24' height='24' fill='%23999'/%3E%3C/svg%3E"
+            alt=""
+          />
+        </button>
+        <div
+          onclick="alert('x')"
+          style="
+            cursor: pointer;
+            margin-top: 12px;
+            padding: 8px;
+            background: #333;
+            color: #fff;
+            width: fit-content;
+          "
+        ></div>
       </div>
-
-      <p contenteditable="true" spellcheck="false"></p>
+      <p contenteditable="true"></p>
     </main>
 
     <footer>
       <p>
-        <a href="/">Back to landing</a>
+        <a href="/">Landing</a>
         ·
-        <span id="lab-dup">Duplicate id target</span>
-        <span id="lab-dup">Second element reuses id</span>
+        <span id="dup">dup id</span>
+        <span id="dup">dup id</span>
       </p>
     </footer>
   </body>
